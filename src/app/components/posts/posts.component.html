@@ -1,0 +1,66 @@
+<section class="container">
+  <header class="header">
+    <div class="top-bar">
+      <span class="your-name">BLOG</span>
+    </div>
+    <h1 class="main-title">THE BLOG</h1>
+  </header>
+
+  <section class="recent-posts">
+    <h2>Recent blog posts</h2>
+    <div class="grid">
+      <article   *ngFor="let post of paginatedPosts" class="post-card">
+        <img [src]="getRandomImage()" alt="Blog Image" class="thumbnail" />
+        <div class="post-content">
+          <span class="post-meta">Author • 1 Jan 2023</span>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-body">{{ post.body | slice:0:80 }}...</p>
+          
+          <div class="tags">
+            <button class="tag-btn">Design</button>
+            <button class="tag-btn">Research</button>
+          </div>
+      
+          <div class="read-more-container">
+            <button [routerLink]="['/posts', post.id]" class="details-link">
+              Read more →
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="all-posts">
+    <h2>All blog posts</h2>
+    <div class="grid">
+      <article   *ngFor="let post of paginatedPosts" class="post-card">
+        <img [src]="getRandomImage()" alt="Blog Image" class="thumbnail" />
+        <div class="post-content">
+          <span class="post-meta">Author • 1 Jan 2023</span>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-body">{{ post.body | slice:0:80 }}...</p>
+          
+          <div class="tags">
+            <button class="tag-btn">Design</button>
+            <button class="tag-btn">Research</button>
+          </div>
+      
+          <div class="read-more-container">
+            <button [routerLink]="['/posts', post.id]" class="details-link">
+              Read more →
+            </button>
+          </div>
+        </div>
+      </article>
+      
+    </div>
+
+    <div class="pagination">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <ng-container *ngFor="let page of pages">
+        <button [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
+      </ng-container>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </section>
+</section>

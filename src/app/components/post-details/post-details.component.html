@@ -1,0 +1,14 @@
+<div class="detail-container" *ngIf="!isLoading && !error">
+  <img [src]="'https://picsum.photos/id/' + post.id * 10 + '/800/350'" class="post-image" alt="Post Image" />
+  <h1 class="detail-title">{{ post.title }}</h1>
+  <p class="detail-body">{{ post.body }}</p>
+  <button class="back-link" (click)="goBack()">← Back to All Posts</button>
+</div>
+
+<div *ngIf="isLoading" class="loading">
+  Loading...
+</div>
+
+<div *ngIf="error" class="error">
+  {{ error }}
+</div>

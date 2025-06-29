@@ -1,0 +1,71 @@
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #0b0d23;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --accent: #6366f1;
+  --button-text-light: #ffffff;
+  --button-text-dark: #ffffff;
+}
+
+
+body.light-mode {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.detail-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.post-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.detail-body {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: var(--button-text-light);
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode .back-link {
+  color: var(--button-text-dark);
+}
+
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  color: var(--accent);
+}
